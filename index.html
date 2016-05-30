@@ -1,0 +1,28 @@
+
+
+<html>
+    <head>
+        <title>your title here</title>
+        <script src="https://code.jquery.com/jquery-2.2.4.js"></script>
+    </head>
+    <body bgcolor="ffffff">
+        <button class="video-down-btn" id="download1" data-video="1">download video 1</button>
+        <button class="video-down-btn" id="download2" data-video="2">download video 2</button>
+    </body>
+    
+    <footer>
+        <script>
+            $(document).ready(function () {
+                $('.video-down-btn').click(function () {
+                    
+                    $.post("ajax/index.php", {video: $(this).data('video')}, function (data) {
+                        window.open("ajax/index.php?video=" + data);
+                        console.log(data);
+                    });
+                });              
+            });
+        </script>
+    </footer>
+
+</html>
+
